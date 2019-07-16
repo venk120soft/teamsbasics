@@ -1,0 +1,44 @@
+Working In Teams Project.
+
+First Get the Account to Access the Team instance, If you dont get your v- Account We can use our own email address to get the o365 Tenant
+
+https://www.office.com/
+
+Go here and signup After that  go to Admin => Add Users add  one get the tenant
+
+Then  Open https://teams.microsoft.com
+
+GO to More Apps and search for the AppStudio.
+App Studio is the place to  Create/ Update/ Delete/ Deploy our  Applications
+
+
+On Creating the new application, On Last step if you download it, we have The Manifest file and 2 more images will gets download.
+
+We can modify the Manifest as per the requirement and upload to the teams app again.
+
+Manifest wont accept local paths so our application needs be running on the server, i.e our application needs to deploy on some server.
+
+ngrok will helps to deploy our appllication into specific port
+
+For that, goto https://ngrok.com/ and signup with your email and download the ngrok application into local and run the application in Administrator mode.
+
+Once it ran use ngrok http -portNumber
+
+Then You will get the ngrok 2 urls which points to http and https
+just copy the https urls and paste in Manifest for contentUrl and Website Url values
+
+Now Zip all files 2 images and Manifest then Goto teams Under More Apps there is an option called uploade a custom app on click it will ask for zipped folder.
+Just Give our zipped folder and install the app and open it works as expected
+
+==========================================================================================================================================
+
+We can also Integrate our application into teams. for that Just need to run the npm server of our application by going to command prompt
+goto the application where you have 
+Ex:C:\Windows\users>cd C:\MyTeamsApp
+C:\MyTeamsApp>npm install
+C:\MyTeamsApp>npm start
+
+It will tell you on which port it is running on
+
+We just need to notedown that port and run the ngrock with that port and replace https url of ngrock in Manifest file
+
