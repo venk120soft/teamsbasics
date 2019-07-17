@@ -42,3 +42,19 @@ It will tell you on which port it is running on
 
 We just need to notedown that port and run the ngrock with that port and replace https url of ngrock in Manifest file
 
+like: ngrok http 3333
+
+========================================================================================================================================
+
+Running Production 
+go to the root folder, make sure npm, yarn and concurrently is installed then run npm run bootstrap and npm run dev
+
+This will open the manifest-editor-st dont close it, it should be open to run the npm server.
+
+Then open the solution with  3001 port in web browser then you can see 
+http://localhost:3001/#/
+
+within the path c:\teams-dev-app\client\packages\manifest-editor
+config.dev.js file modify the  https://dev-api-int.teams.microsoft.com/api have to replace with https://dev-api.teams.microsoft.com/api 
+and same for takesource as well
+
