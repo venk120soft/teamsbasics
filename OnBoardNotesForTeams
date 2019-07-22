@@ -1,20 +1,20 @@
-Working In Teams Project.
+Setup Instructions to Work with App Studio UI
 
 First Get the Account to Access the Team instance, If you dont get your v- Account We can use our own email address to get the o365 Tenant
 
 https://www.office.com/
 
-Go here and signup After that  go to Admin => Add Users add  one get the tenant
+Go here and signup After that  go to Admin => Add Users add  one get the tenant. Make sure teams access is selected
 
 Then  Open https://teams.microsoft.com
 
-GO to More Apps and search for the AppStudio.
-App Studio is the place to  Create/ Update/ Delete/ Deploy our  Applications
+In Teams application, Go to More Apps and search for the AppStudio.
+App Studio is the place to  Create/ Update/ Delete/ Deploy our  Application
 
+On Creating the new application, On Final step go to "Test and Distribute" option where you can intall, submit and download the app.
+if you download it, we have The Manifest file and 2 more images will gets download. 
 
-On Creating the new application, On Last step if you download it, we have The Manifest file and 2 more images will gets download.
-
-We can modify the Manifest as per the requirement and upload to the teams app again.
+We can modify the Manifest as per the requirement and upload to the teams app again to reflect the changes.
 
 Manifest wont accept local paths so our application needs be running on the server, i.e our application needs to deploy on some server.
 
@@ -22,7 +22,7 @@ ngrok will helps to deploy our appllication into specific port
 
 For that, goto https://ngrok.com/ and signup with your email and download the ngrok application into local and run the application in Administrator mode.
 
-Once it ran use ngrok http -portNumber
+Once it ran use ngrok http -portNumber, This will run the application in the provided portNumber
 
 Then You will get the ngrok 2 urls which points to http and https
 just copy the https urls and paste in Manifest for contentUrl and Website Url values
@@ -31,9 +31,9 @@ Now Zip all files 2 images and Manifest then Goto teams Under More Apps there is
 Just Give our zipped folder and install the app and open it works as expected
 
 ==========================================================================================================================================
+Integrate our application into teams:
 
-We can also Integrate our application into teams. for that Just need to run the npm server of our application by going to command prompt
-goto the application where you have 
+make sure npm server is running if not goto the path where your application is exist
 Ex:C:\Windows\users>cd C:\MyTeamsApp
 C:\MyTeamsApp>npm install
 C:\MyTeamsApp>npm start
@@ -46,15 +46,25 @@ like: ngrok http 3333
 
 ========================================================================================================================================
 
-Running Production 
-go to the root folder, make sure npm, yarn and concurrently is installed then run npm run bootstrap and npm run dev
+Running Production In local:
+
+Go to the root folder, make sure npm, yarn and concurrently is installed then execute below commands in commandprompt
+1) npm run bootstrap // this will get all the dependencies
+2) npm run dev // this will build the application and run the npm server
 
 This will open the manifest-editor-st dont close it, it should be open to run the npm server.
 
 Then open the solution with  3001 port in web browser then you can see 
 http://localhost:3001/#/
 
-within the path c:\teams-dev-app\client\packages\manifest-editor
-config.dev.js file modify the  https://dev-api-int.teams.microsoft.com/api have to replace with https://dev-api.teams.microsoft.com/api 
-and same for takesource as well
+within the path c:\teams-dev-app\client\packages\manifest-editor,
+In config.dev.js file modify the propertie value https://dev-api-int.teams.microsoft.com/api with
+https://dev-api.teams.microsoft.com/api 
+and same for takesource propertie as well.
 
+In Fiddler, click on Auto Responder tab then select Enable Rules, Un Mached Request passThrough
+and click on add a rule button
+Url Pattern should be
+regex:(?inx)^https://dev.teams.microsoft.com(?'site'.*)$
+and test Url should be
+http://localhost:3001${site}
