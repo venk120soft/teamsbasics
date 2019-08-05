@@ -68,3 +68,60 @@ Url Pattern should be
 regex:(?inx)^https://dev.teams.microsoft.com(?'site'.*)$
 and test Url should be
 http://localhost:3001${site}
+
+Optional to see only specific requests go to the Filters Click on use Filters and select Show only the following Hosts then keep this
+dev.teams.microsoft.com; dev-int.teams.microsoft.com; appstudio-int.azurefd.net; appstudio.azurefd.net;
+========================================================================================================================================
+
+Make sure you have an access to https://domoreexp.visualstudio.com/DefaultCollection/Teamspace/_git/teams-devapp then go to the Root folder then do the git clone. 
+
+C:\Teams>git clone https://domoreexp.visualstudio.com/DefaultCollection/Teamspace/_git/teams-devapp
+
+Install Node by going here download and install it.
+https://nodejs.org/en/download/
+
+Then Open the Command prompmt and goto the root folder then install the npm
+C:\Teams\teams-devapp\client>npm install
+
+npm install yarn
+
+npm install concurrently
+
+npm run bootstrap 
+
+Then You are good to run the below command
+npm run dev
+On Running this you will get the Popup Manifest-Editor-st keep it open while you working on the app, It means that npm server is running.
+Any changes you made to the application will get reflected as soon as you save
+
+Then open the solution with  3001 port in web browser then you can see 
+http://localhost:3001/#/
+
+within the path c:\teams-dev-app\client\packages\manifest-editor,
+In config.dev.js file modify the propertie value https://dev-api-int.teams.microsoft.com/api with
+https://dev-api.teams.microsoft.com/api 
+and same for takesource propertie as well.
+
+In Fiddler, click on Auto Responder tab then select Enable Rules, Un Mached Request passThrough
+and click on add a rule button
+Url Pattern should be
+regex:(?inx)^https://dev.teams.microsoft.com(?'site'.*)$
+and test Url should be
+http://localhost:3001${site}
+
+Optional to see only specific requests go to the Filters Click on use Filters and select Show only the following Hosts then keep this
+dev.teams.microsoft.com; dev-int.teams.microsoft.com; appstudio-int.azurefd.net; appstudio.azurefd.net;
+
+Then Go to Teams App, Under the flies click on ellipsis menu for more actions and Search for the App Studio then Install it.
+
+Here you start creating the Applications
+
+Go here, Signup for it https://dashboard.ngrok.com/get-started download the ngrok then
+ngrok http -portnumber
+
+
+
+
+
+
+
