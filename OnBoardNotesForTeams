@@ -112,6 +112,11 @@ http://localhost:3001${site}
 Optional to see only specific requests go to the Filters Click on use Filters and select Show only the following Hosts then keep this
 dev.teams.microsoft.com; dev-int.teams.microsoft.com; appstudio-int.azurefd.net; appstudio.azurefd.net;
 
+GOto Tools=> Options=> Https =>
+
+Select Capture Https Connects, Decrypt Https traffic from all process.
+
+Now run=> npm run dev
 Then Go to Teams App, Under the flies click on ellipsis menu for more actions and Search for the App Studio then Install it.
 
 Here you start creating the Applications
