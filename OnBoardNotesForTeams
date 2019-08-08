@@ -124,9 +124,7 @@ Here you start creating the Applications
 Go here, Signup for it https://dashboard.ngrok.com/get-started download the ngrok then
 ngrok http -portnumber
 
-
-
-
-
+If you cant see your changes
+then make sure you disable the cache in chrome dev tools
 
 
